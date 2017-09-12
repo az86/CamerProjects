@@ -1,0 +1,28 @@
+
+
+
+[SENSOR]
+Preview Width   = 1280
+Preview Height  = 1024
+Preview Type    = 1 //RAW
+Sensor Name     = MT9M001
+Reset Pin       = 1
+Pwdn Pin        = 1
+I2C Mode        = 3
+I2C Slave ID    = 0x6C
+I2C Flag Reg    = 0x300B
+I2C Flag Value  = 0x88
+I2C Flag Mask   = 0xff
+I2C Flag Reg1   = 0x300C
+I2C Flag Value1 = 0x65
+I2C Flag Mask1  = 0xff
+Out Format      = 0x03
+MCLK Speed      = 0x1
+AVDD            = 1
+DOVDD           = 0
+DVDD            = 0
+[DEFAULT]
+
+
+                                                                                                                                    
+END                                                                                                              

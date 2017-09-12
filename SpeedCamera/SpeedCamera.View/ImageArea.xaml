@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="SpeedCamera.View.ImageArea"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SpeedCamera.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Image Source="Resources/eye.jpg"/>
+        <Canvas>
+            <Ellipse Width="10" Height="10" Stroke="DarkRed" Name="redPin"/>
+            <Ellipse Width="10" Height="10" Stroke="DarkGreen" Name="greenPin"/>
+        </Canvas>
+    </Grid>
+</UserControl>

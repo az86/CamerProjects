@@ -1,0 +1,91 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedCamera.UIShell", "SpeedCamera.UIShell\SpeedCamera.UIShell.csproj", "{B574883C-8B5D-4C8E-9505-9153FDB33F17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedCamera.Algorithm", "SpeedCamera.Algorithm\SpeedCamera.Algorithm.csproj", "{7DFB65FB-B713-40B0-8F85-FE3567B72EBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedCamera.Interfaces", "SpeedCamera.Interfaces\SpeedCamera.Interfaces.csproj", "{AAA0F259-4F8A-4EA6-AD65-F4D8776BFBE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedCamera.ViewModel", "SpeedCamera.ViewModel\SpeedCamera.ViewModel.csproj", "{D368F1DF-8962-49A0-BADC-199D0A3496B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedCamera.View", "SpeedCamera.View\SpeedCamera.View.csproj", "{70D329F3-B657-44EA-AE5A-6357DE156D0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AZ.Basic", "AZ.Basic\AZ.Basic.csproj", "{92972D5B-1F5B-4037-9186-DC1283761646}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AZ.WPF", "AZ.WPF\AZ.WPF.csproj", "{FBA3291D-ED26-4BF0-A098-0AC3301092A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B574883C-8B5D-4C8E-9505-9153FDB33F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B574883C-8B5D-4C8E-9505-9153FDB33F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B574883C-8B5D-4C8E-9505-9153FDB33F17}.Debug|x86.ActiveCfg = Debug|x86
+		{B574883C-8B5D-4C8E-9505-9153FDB33F17}.Debug|x86.Build.0 = Debug|x86
+		{B574883C-8B5D-4C8E-9505-9153FDB33F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B574883C-8B5D-4C8E-9505-9153FDB33F17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B574883C-8B5D-4C8E-9505-9153FDB33F17}.Release|x86.ActiveCfg = Release|x86
+		{B574883C-8B5D-4C8E-9505-9153FDB33F17}.Release|x86.Build.0 = Release|x86
+		{7DFB65FB-B713-40B0-8F85-FE3567B72EBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DFB65FB-B713-40B0-8F85-FE3567B72EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DFB65FB-B713-40B0-8F85-FE3567B72EBD}.Debug|x86.ActiveCfg = Debug|x86
+		{7DFB65FB-B713-40B0-8F85-FE3567B72EBD}.Debug|x86.Build.0 = Debug|x86
+		{7DFB65FB-B713-40B0-8F85-FE3567B72EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DFB65FB-B713-40B0-8F85-FE3567B72EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DFB65FB-B713-40B0-8F85-FE3567B72EBD}.Release|x86.ActiveCfg = Release|x86
+		{7DFB65FB-B713-40B0-8F85-FE3567B72EBD}.Release|x86.Build.0 = Release|x86
+		{AAA0F259-4F8A-4EA6-AD65-F4D8776BFBE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAA0F259-4F8A-4EA6-AD65-F4D8776BFBE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAA0F259-4F8A-4EA6-AD65-F4D8776BFBE7}.Debug|x86.ActiveCfg = Debug|x86
+		{AAA0F259-4F8A-4EA6-AD65-F4D8776BFBE7}.Debug|x86.Build.0 = Debug|x86
+		{AAA0F259-4F8A-4EA6-AD65-F4D8776BFBE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAA0F259-4F8A-4EA6-AD65-F4D8776BFBE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAA0F259-4F8A-4EA6-AD65-F4D8776BFBE7}.Release|x86.ActiveCfg = Release|x86
+		{AAA0F259-4F8A-4EA6-AD65-F4D8776BFBE7}.Release|x86.Build.0 = Release|x86
+		{D368F1DF-8962-49A0-BADC-199D0A3496B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D368F1DF-8962-49A0-BADC-199D0A3496B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D368F1DF-8962-49A0-BADC-199D0A3496B5}.Debug|x86.ActiveCfg = Debug|x86
+		{D368F1DF-8962-49A0-BADC-199D0A3496B5}.Debug|x86.Build.0 = Debug|x86
+		{D368F1DF-8962-49A0-BADC-199D0A3496B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D368F1DF-8962-49A0-BADC-199D0A3496B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D368F1DF-8962-49A0-BADC-199D0A3496B5}.Release|x86.ActiveCfg = Release|x86
+		{D368F1DF-8962-49A0-BADC-199D0A3496B5}.Release|x86.Build.0 = Release|x86
+		{70D329F3-B657-44EA-AE5A-6357DE156D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70D329F3-B657-44EA-AE5A-6357DE156D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D329F3-B657-44EA-AE5A-6357DE156D0C}.Debug|x86.ActiveCfg = Debug|x86
+		{70D329F3-B657-44EA-AE5A-6357DE156D0C}.Debug|x86.Build.0 = Debug|x86
+		{70D329F3-B657-44EA-AE5A-6357DE156D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70D329F3-B657-44EA-AE5A-6357DE156D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70D329F3-B657-44EA-AE5A-6357DE156D0C}.Release|x86.ActiveCfg = Release|x86
+		{70D329F3-B657-44EA-AE5A-6357DE156D0C}.Release|x86.Build.0 = Release|x86
+		{92972D5B-1F5B-4037-9186-DC1283761646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92972D5B-1F5B-4037-9186-DC1283761646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92972D5B-1F5B-4037-9186-DC1283761646}.Debug|x86.ActiveCfg = Debug|x86
+		{92972D5B-1F5B-4037-9186-DC1283761646}.Debug|x86.Build.0 = Debug|x86
+		{92972D5B-1F5B-4037-9186-DC1283761646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92972D5B-1F5B-4037-9186-DC1283761646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92972D5B-1F5B-4037-9186-DC1283761646}.Release|x86.ActiveCfg = Release|x86
+		{92972D5B-1F5B-4037-9186-DC1283761646}.Release|x86.Build.0 = Release|x86
+		{FBA3291D-ED26-4BF0-A098-0AC3301092A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA3291D-ED26-4BF0-A098-0AC3301092A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA3291D-ED26-4BF0-A098-0AC3301092A6}.Debug|x86.ActiveCfg = Debug|x86
+		{FBA3291D-ED26-4BF0-A098-0AC3301092A6}.Debug|x86.Build.0 = Debug|x86
+		{FBA3291D-ED26-4BF0-A098-0AC3301092A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA3291D-ED26-4BF0-A098-0AC3301092A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBA3291D-ED26-4BF0-A098-0AC3301092A6}.Release|x86.ActiveCfg = Release|Any CPU
+		{FBA3291D-ED26-4BF0-A098-0AC3301092A6}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

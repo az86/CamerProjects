@@ -1,0 +1,64 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:AForge.Controls;assembly=AForge.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+        x:Class="MyAmCap.MainWindow"
+        Title="MainWindow" Height="553" Width="640" Closed="Window_Closed">
+    <Grid x:Name="grid">
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="Height" Value="23"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="Height" Value="23"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="Height" Value="23"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+            <Style TargetType="ComboBox">
+                <Setter Property="Height" Value="23"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition Height="70"/>
+		</Grid.RowDefinitions>
+		<WindowsFormsHost  Grid.Row="0">
+			<controls:VideoSourcePlayer x:Name="vsp"/>
+		</WindowsFormsHost>
+
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+			<ComboBox x:Name="cbDevices" Height="30"/>
+			<Button x:Name="connectBtn" Content="Connect" Grid.Column="1" Click="ConnectBtnClick" IsEnabled="{Binding SelectionBoxItemTemplate.HasContent, ElementName=cbDevices, Mode=OneWay}"/>
+			<Button x:Name="optionBtn" Content="Option"  Grid.Column="2" Click="OptionBtnClick"/>
+			<Button x:Name="captureBtn" Content="Capture"  Grid.Column="3" Click="CaptureBtnClick"/>
+			<Button x:Name="recordBtn" Content="Record"  Grid.Column="4" Click="RecordBtnClick"/>
+			<Button x:Name="StopRecordBtn" Content="StopRecord"  Grid.Column="5" Click="StopRecordBtnClick"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="FrameSize"/>
+            <Button Grid.Row="1" Content="Set" Click="SetBtn_Click" Name="setBtn"/>
+            <TextBlock Grid.Row="1" Grid.Column="2" Text="Width:"/>
+            <TextBox Grid.Row="1" Grid.Column="3" Name="frameWidth"/>
+            <TextBlock Grid.Row="1" Grid.Column="4" Text="Height:"/>
+            <TextBox Grid.Row="1" Grid.Column="5" Name="frameHeight"/>
+        </Grid>
+	</Grid>
+</Window>

@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="SpeedCamera.View.Settings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SpeedCamera.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="R"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="G"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="B"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Red Min"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding RedMinR}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding RedMinG}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding RedMinB}"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="2" Text="Red Max"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding RedMaxR}"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding RedMaxG}"/>
+        <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding RedMaxB}"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="3" Text="Green Min"/>
+        <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding GreenMinR}"/>
+        <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding GreenMinG}"/>
+        <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding GreenMinB}"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="4" Text="Green Max"/>
+        <TextBox Grid.Row="1" Grid.Column="4" Text="{Binding GreenMaxR}"/>
+        <TextBox Grid.Row="2" Grid.Column="4" Text="{Binding GreenMaxG}"/>
+        <TextBox Grid.Row="3" Grid.Column="4" Text="{Binding GreenMaxB}"/>
+    </Grid>
+</UserControl>
