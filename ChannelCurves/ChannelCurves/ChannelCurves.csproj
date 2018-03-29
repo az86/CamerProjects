@@ -69,13 +69,69 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\ChannelBox.xaml.cs">
+      <DependentUpon>ChannelBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChannelCurveBox.xaml.cs">
+      <DependentUpon>ChannelCurveBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ReferenceVoltage.xaml.cs">
+      <DependentUpon>ReferenceVoltage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ResolutionBox.xaml.cs">
+      <DependentUpon>ResolutionBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SamplingRate.xaml.cs">
+      <DependentUpon>SamplingRate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ShowWayBox.xaml.cs">
+      <DependentUpon>ShowWayBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Threshold.xaml.cs">
+      <DependentUpon>Threshold.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataDistributer.cs" />
     <Compile Include="DataSaver.cs" />
+    <Page Include="Controls\ChannelBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ChannelCurve.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\ChannelCurveBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\DevicesBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ReferenceVoltage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ResolutionBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SamplingRate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ShowWayBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Threshold.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,6 +154,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Controls\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

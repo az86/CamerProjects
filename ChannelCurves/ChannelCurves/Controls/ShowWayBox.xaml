@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="ChannelCurves.Controls.ShowWayBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChannelCurves.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <GroupBox Header="显示方式">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <RadioButton Content="逐点显示"/>
+            <RadioButton Content="每10个显示" Grid.Row="1"/>
+            <RadioButton Content="每100个显示" Grid.Row="2"/>
+            <RadioButton Content="每1000个显示" Grid.Row="3"/>
+        </Grid>
+    </GroupBox>
+</UserControl>

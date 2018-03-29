@@ -99,7 +99,6 @@ namespace ChannelCurves
 
             foreach (var ch in workingChannels)
             {
-                App.Current.Dispatcher.Invoke(ch.Start);
             }
 
             var saver = new DataSaver();
@@ -122,13 +121,13 @@ namespace ChannelCurves
                     {
                         var val = (uint)buf[i] + 0x100 * (uint)buf[i + 1];
                         i += 2;
-                        workingChannels[channelIndex].AddValue((int)val);
+                      //  workingChannels[channelIndex].AddValue((int)val);
                         saver.WriteValue((int)val);
                     }
                     else
                     {
                         var val = (ushort)buf[i++];
-                        workingChannels[channelIndex].AddValue(val);
+                      //  workingChannels[channelIndex].AddValue(val);
                         saver.WriteValue(val);
                     }
                     channelIndex++;

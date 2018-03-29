@@ -13,53 +13,34 @@ namespace ChannelCurves.Controls
     /// </summary>
     public partial class ChannelCurve : UserControl
     {
-        private static int Count;
-
-        private readonly int Index;
 
         public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof (string), typeof (ChannelCurve));
 
         public string Title
         {
-            get { return Config.UIConfigs.Instance.CHsDesc[Index]; }
-            set
-            {
-                SetValue(TitleProperty, value);
-                Config.UIConfigs.Instance.CHsDesc[Index] = value;
-            }
+            get;set;
         }
 
-        private const int _bufferLen = 10 * 1024;
-        // private readonly ObservableDataSource<Point> _dataSource = new ObservableDataSource<Point>(); 
-        private readonly int[] _xCoor = new int[_bufferLen];
-        private readonly int[] _ptVals = new int[_bufferLen];
 
-        private EnumerableDataSource<int> _dsX;
-        private EnumerableDataSource<int> _dsY;
+        private ObservableDataSource<int> _dsX;
+        private ObservableDataSource<Point> _dsMax;
+        private ObservableDataSource<Point> _dsMin;
 
         public ChannelCurve()
         {
             InitializeComponent();
-            Index = Count++ % Config.UIConfigs.Instance.CHsDesc.Count();
-            Title = Config.UIConfigs.Instance.CHsDesc[Index];
-            //chartPlotter.AddLineGraph(_dataSource);
-            for(int i = 0; i != _bufferLen; i++)
-            {
-                _xCoor[i] = i;
-            }
-            _dsX = new EnumerableDataSource<int>(_xCoor);
-            _dsY = new EnumerableDataSource<int>(_ptVals);
-            _dsX.SetXMapping(x => x);
-            _dsY.SetYMapping(y => y);
-            chartPlotter.AddLineGraph(new CompositeDataSource(_dsX, _dsY));
+            _dsX = new ObservableDataSource<int>();
+            _dsMax = new ObservableDataSource<Point>();
+            _dsMin = new ObservableDataSource<Point>();
+            chartPlotter.AddLineGraph(_dsX);
+            chartPlotter.AddLineGraph(_dsMax, System.Windows.Media.Colors.Gray);
+            chartPlotter.AddLineGraph(_dsMin, System.Windows.Media.Colors.Gray);
+            _dsMax.AppendMany(new Point[] { new Point(0, 0xFFFF), new Point(2000, 0xFFFF) });
+            _dsMin.AppendMany(new Point[] { new Point(0, 0x0), new Point(2000, 0x0) });
+
             chartPlotter.Legend.Visibility = Visibility.Hidden;
         }
 
-        public void Start()
-        {
-            //_dataSource.Collection.Clear();
-            _ptCount = 0;
-        }
         private void TextBlock_MouseClick(object sender, MouseButtonEventArgs e)
         {
             if (e.ClickCount == 2)
@@ -81,37 +62,6 @@ namespace ChannelCurves.Controls
                 tb.Visibility = Visibility.Collapsed;
             }
             Title = tb.Text;
-        }
-
-        private int _ptCount;
-
-        private const int _samplingMaskcode = 0xF;
-
-        int count10K;
-        public void AddValue(int val)
-        {
-            if ((_ptCount & 0xF) == 0)
-            {
-                int x = (_ptCount/0x10) % _bufferLen;
-                _ptVals[x] = val;
-
-                if ((x+1) == _bufferLen)
-                {
-                    count10K++;
-                    if ((count10K % 3) == 0)
-                    {
-                        for (int k = 0; k != _bufferLen; k++)
-                        {
-                            _xCoor[k] = (_ptCount + k * 0x10);
-                        }
-
-                        App.Current.Dispatcher.Invoke(_dsY.RaiseDataChanged);
-                        Console.WriteLine(_ptCount);
-                    }
-                }
-
-            }
-            _ptCount++;
         }
     }
 }
