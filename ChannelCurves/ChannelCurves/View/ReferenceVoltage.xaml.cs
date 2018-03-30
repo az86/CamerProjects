@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ChannelCurves.Controls
+namespace ChannelCurves.View
 {
     /// <summary>
-    /// SamplingRate.xaml 的交互逻辑
+    /// ReferenceVoltage.xaml 的交互逻辑
     /// </summary>
-    public partial class SamplingRate : UserControl
+    public partial class ReferenceVoltage : UserControl
     {
-        public SamplingRate()
+        public ReferenceVoltage()
         {
             InitializeComponent();
         }

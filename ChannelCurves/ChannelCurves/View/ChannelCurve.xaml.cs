@@ -6,7 +6,7 @@ using System.Windows.Input;
 using Microsoft.Research.DynamicDataDisplay;
 using Microsoft.Research.DynamicDataDisplay.DataSources;
 
-namespace ChannelCurves.Controls
+namespace ChannelCurves.View
 {
     /// <summary>
     /// ChannelCurve.xaml 的交互逻辑

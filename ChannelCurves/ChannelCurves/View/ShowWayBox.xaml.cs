@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ChannelCurves.Controls
+namespace ChannelCurves.View
 {
     /// <summary>
-    /// Threshold.xaml 的交互逻辑
+    /// ShowWayBox.xaml 的交互逻辑
     /// </summary>
-    public partial class Threshold : UserControl
+    public partial class ShowWayBox : UserControl
     {
-        public Threshold()
+        public ShowWayBox()
         {
             InitializeComponent();
         }

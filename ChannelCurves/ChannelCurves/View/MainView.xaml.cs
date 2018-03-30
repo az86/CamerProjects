@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ChannelCurves.Controls
+namespace ChannelCurves.View
 {
     /// <summary>
-    /// ChannelBox.xaml 的交互逻辑
+    /// MainView.xaml 的交互逻辑
     /// </summary>
-    public partial class ChannelBox : UserControl
+    public partial class MainView : UserControl
     {
-        public ChannelBox()
+        public MainView()
         {
             InitializeComponent();
         }

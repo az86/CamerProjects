@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ChannelCurves.Controls
+namespace ChannelCurves.View
 {
     /// <summary>
-    /// ReferenceVoltage.xaml 的交互逻辑
+    /// ResolutionBox.xaml 的交互逻辑
     /// </summary>
-    public partial class ReferenceVoltage : UserControl
+    public partial class ResolutionBox : UserControl
     {
-        public ReferenceVoltage()
+        public ResolutionBox()
         {
             InitializeComponent();
         }
