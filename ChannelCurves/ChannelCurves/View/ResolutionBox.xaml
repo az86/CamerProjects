@@ -6,6 +6,43 @@
              xmlns:local="clr-namespace:ChannelCurves.View"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="RadioButton" x:Key="rb8">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Resolution}" Value="8">
+                    <Setter Property="IsChecked" Value="True"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="RadioButton"  x:Key="rb10">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Resolution}" Value="10">
+                    <Setter Property="IsChecked" Value="True"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="RadioButton"  x:Key="rb12">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Resolution}" Value="12">
+                    <Setter Property="IsChecked" Value="True"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="RadioButton"  x:Key="rb14">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Resolution}" Value="14">
+                    <Setter Property="IsChecked" Value="True"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="RadioButton"  x:Key="rb16">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Resolution}" Value="16">
+                    <Setter Property="IsChecked" Value="True"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <GroupBox Header="分辨率">
         <Grid>
             <Grid.RowDefinitions>
@@ -15,11 +52,11 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <RadioButton Content="8" Grid.Row="0"/>
-            <RadioButton Content="10" Grid.Row="1"/>
-            <RadioButton Content="12" Grid.Row="2"/>
-            <RadioButton Content="14" Grid.Row="3"/>
-            <RadioButton Content="16" Grid.Row="4"/>
+            <RadioButton Content="8"  Grid.Row="0" Command="{Binding ResolutionSetCommand}" CommandParameter="8"  Style="{StaticResource rb8}"/>
+            <RadioButton Content="10" Grid.Row="1" Command="{Binding ResolutionSetCommand}" CommandParameter="10" Style="{StaticResource rb10}"/>
+            <RadioButton Content="12" Grid.Row="2" Command="{Binding ResolutionSetCommand}" CommandParameter="12" Style="{StaticResource rb12}"/>
+            <RadioButton Content="14" Grid.Row="3" Command="{Binding ResolutionSetCommand}" CommandParameter="14" Style="{StaticResource rb14}"/>
+            <RadioButton Content="16" Grid.Row="4" Command="{Binding ResolutionSetCommand}" CommandParameter="16" Style="{StaticResource rb16}"/>
         </Grid>    
     </GroupBox>
 </UserControl>

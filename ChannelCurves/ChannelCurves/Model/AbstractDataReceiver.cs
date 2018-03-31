@@ -6,22 +6,41 @@ namespace ChannelCurves.Model
 {
     abstract class AbstractDataReceiver
     {
+        public delegate void OnDataReceive(byte[] buf);
+
+        public OnDataReceive OnDataArriveEvent;
+
         private Queue<byte[]> _buffers = new Queue<byte[]>();
 
         private bool _isRun;
 
-        private Thread _th;
+        private Thread _thXfer;
 
-        private System.Threading.Semaphore _seam = new Semaphore(0, 0xFFFF);
+        private Thread _thDispatch;
+
+        private System.Threading.Semaphore _seam;
 
         protected abstract byte[] OnXferData();
 
         public void StartAsync()
         {
-            _th = new Thread(() => CoreStart());
+
+            if (_isRun)
+            {
+                this.WriteLine("DataReceiver has been running.");
+                return;
+            }
+
+            _buffers.Clear();
+            _isRun = true;
+            _seam = new Semaphore(0, 0xFFFF);
+            _thXfer = new Thread(() => CoreStartXfer()) { IsBackground = true };
+            _thDispatch = new Thread(() => CoreStartDispatch()) { IsBackground = true };
+            _thDispatch.Start();
+            _thXfer.Start();
         }
 
-        public byte[] Pop()
+        private byte[] Pop()
         {
             _seam.WaitOne();
             byte[] buf;
@@ -31,20 +50,21 @@ namespace ChannelCurves.Model
             }
             return buf;
         }
-        private void CoreStart()
+        private void CoreStartDispatch()
         {
-            if (_isRun)
+            while(_isRun)
             {
-                this.WriteLine("DataReceiver has been running.");
-                return;
+                var tmp = Pop();
+                OnDataArriveEvent?.Invoke(tmp);
             }
-            _isRun = true;
+        }
+
+        private void CoreStartXfer()
+        {
             while (_isRun)
             {
-                const int bufLen = 16 * 1024;
-                var buf = new byte[bufLen];
-                var data = OnXferData();
-                if (data == null)
+                var buf = OnXferData();
+                if (buf == null)
                 {
                     this.WriteLine("XferData error");
                     continue;
@@ -53,14 +73,17 @@ namespace ChannelCurves.Model
                 {
                     _buffers.Enqueue(buf);
                 }
+                _seam.Release();
             }
         }
 
         void Stop()
         {
             _isRun = false;
-            if (_th != null)
-                _th.Join();
+            if (_thDispatch != null)
+                _thDispatch.Join();
+            if (_thXfer != null)
+                _thXfer.Join();
         }
     }
 }

@@ -70,8 +70,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Basic\Logger.cs" />
+    <Compile Include="Model\ModelFacade.cs" />
     <Compile Include="ViewModel\ChannelCurveBoxViewModel.cs" />
     <Compile Include="ViewModel\ChannelCurveViewModel.cs" />
+    <Compile Include="ViewModel\Command.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\ChannelSelectBox.xaml.cs">
       <DependentUpon>ChannelSelectBox.xaml</DependentUpon>

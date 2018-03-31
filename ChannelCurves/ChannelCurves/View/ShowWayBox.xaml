@@ -6,6 +6,36 @@
              xmlns:local="clr-namespace:ChannelCurves.View"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="RadioButton"  x:Key="rbsw1">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding NDataShowOne}" Value="1">
+                    <Setter Property="IsChecked" Value="True"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="RadioButton"  x:Key="rbsw10">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding NDataShowOne}" Value="10">
+                    <Setter Property="IsChecked" Value="True"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="RadioButton"  x:Key="rbsw100">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding NDataShowOne}" Value="100">
+                    <Setter Property="IsChecked" Value="True"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="RadioButton"  x:Key="rbsw1000">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding NDataShowOne}" Value="1000">
+                    <Setter Property="IsChecked" Value="True"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <GroupBox Header="显示方式">
         <Grid>
             <Grid.RowDefinitions>
@@ -14,10 +44,10 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <RadioButton Content="逐点显示"/>
-            <RadioButton Content="每10个显示" Grid.Row="1"/>
-            <RadioButton Content="每100个显示" Grid.Row="2"/>
-            <RadioButton Content="每1000个显示" Grid.Row="3"/>
+            <RadioButton Content="逐点显示"     Grid.Row="0" Style="{StaticResource rbsw1}"    Command="{Binding NDataShowOneCommand}" CommandParameter="1"/>
+            <RadioButton Content="每10个显示"   Grid.Row="1" Style="{StaticResource rbsw10}"   Command="{Binding NDataShowOneCommand}" CommandParameter="10"/>
+            <RadioButton Content="每100个显示"  Grid.Row="2" Style="{StaticResource rbsw100}"  Command="{Binding NDataShowOneCommand}" CommandParameter="100"/>
+            <RadioButton Content="每1000个显示" Grid.Row="3" Style="{StaticResource rbsw1000}" Command="{Binding NDataShowOneCommand}" CommandParameter="1000"/>
         </Grid>
     </GroupBox>
 </UserControl>

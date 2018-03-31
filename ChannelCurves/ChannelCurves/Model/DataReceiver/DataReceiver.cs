@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using ChannelCurves.Basic;
 using System.Threading;
+using ChannelCurves.Model.Device;
 
 namespace ChannelCurves.Model.DataReceiver
 {
@@ -12,12 +13,14 @@ namespace ChannelCurves.Model.DataReceiver
 
         public DataReceiver(AbstractDevice dev)
         {
-            _dev = dev;
+            Dev = dev;
         }
+
+        internal AbstractDevice Dev { get => _dev; set => _dev = value; }
 
         protected override byte[] OnXferData()
         {
-            return _dev.XferData();
+            return Dev.XferData();
         }
 
     }

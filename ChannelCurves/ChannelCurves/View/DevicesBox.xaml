@@ -7,12 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Name="db">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0"/>
+            <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Text="设备：" VerticalAlignment="Center"/>
         <!--<ComboBox Grid.Column="1" Name="cb" ItemsSource="{Binding Devices, ElementName=db}" SelectedItem="{Binding SelectedDevice, ElementName=db}" VerticalAlignment="Center" DisplayMemberPath="FriendlyName"/>-->
-        <ComboBox Grid.Column="1" Name="cb" ItemsSource="{Binding Devices, ElementName=db}" SelectedIndex="{Binding SelectedDeviceIndex,ElementName=db,Mode=OneWayToSource}" VerticalAlignment="Center"/>
+        <ComboBox Grid.Column="1" Name="cb" ItemsSource="{Binding Devices, ElementName=db}" SelectedIndex="{Binding SelectedDeviceIndex}" VerticalAlignment="Center"/>
+        <Button Grid.Row="1" Grid.Column="0" Content="开始" Command="{Binding StartCommand}" CommandParameter="12345"/>
     </Grid>
 </UserControl>

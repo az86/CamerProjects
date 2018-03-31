@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChannelCurves.Basic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +11,14 @@ namespace ChannelCurves.ViewModel
     {
         public int ChannelIndex { get; private set; }
 
-        public System.Windows.Point[] PointsOnScreen { get; private set; } = new System.Windows.Point[2000];
+        public System.Windows.Point[] PointsOnScreen { get; private set; } = new System.Windows.Point[4000];
 
         /// <summary>
         /// 显示点索引计数，Max = PointsOnScreen.Length - 1
         /// </summary>
         private int _pointsIndex;
 
-        public int SimplingRate { get; set; } = 1;
+        public int SamplingRate { get; set; } = 1;
 
         /// <summary>
         /// 采样索引计数, Max = SimplingRate.
@@ -37,14 +38,15 @@ namespace ChannelCurves.ViewModel
         /// 外部传入该通道数据
         /// </summary>
         /// <param name="num"></param>
-        void Sample(ushort num)
+        public void Sample(ushort num)
         {
-            if(++_simplingIndex == SimplingRate)
+            if(++_simplingIndex >= SamplingRate)
             {
                 _simplingIndex = 0;
                 PointsOnScreen[_pointsIndex++].Y = num;
                 if (_pointsIndex == PointsOnScreen.Length)
                 {
+                    _pointsIndex = 0;
                     ResetArrayToZero(PointsOnScreen);
                 }
             }

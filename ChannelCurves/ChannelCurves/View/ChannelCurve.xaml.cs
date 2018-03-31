@@ -43,13 +43,13 @@ namespace ChannelCurves.View
             var thisControl = obj as ChannelCurve;
             if (curveData == null || thisControl == null)
                 return;
-            thisControl.WriteLine("Curve data changed, value: {0}", curveData);
+          //  thisControl.WriteLine("Curve data changed, value: {0}", curveData);
             thisControl.SetCurveArray(curveData);
         }
         private void SetCurveArray(Point[]curveData)
         {
-            var dsMax = new ObservableDataSource<Point>(new Point[] { new Point(0, 0xFFFF), new Point(2000, 0xFFFF) });
-            var dsMin = new ObservableDataSource<Point>(new Point[] { new Point(0, 0x0), new Point(2000, 0x0) });
+            var dsMax = new ObservableDataSource<Point>(new Point[] { new Point(0, 0xFFFF), new Point(4000, 0xFFFF) });
+            var dsMin = new ObservableDataSource<Point>(new Point[] { new Point(0, 0x0), new Point(4000, 0x0) });
             chartPlotter.AddLineGraph(dsMax, System.Windows.Media.Colors.Gray);
             chartPlotter.AddLineGraph(dsMin, System.Windows.Media.Colors.Gray);
 
@@ -66,7 +66,6 @@ namespace ChannelCurves.View
             Dispatcher.Invoke(() => UpdateCurve());
         }
 
-        int k;
         private void UpdateCurve()
         {
             var vm = DataContext as ViewModel.ChannelCurveViewModel;

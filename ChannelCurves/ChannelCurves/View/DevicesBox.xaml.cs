@@ -27,9 +27,6 @@ namespace ChannelCurves.View
 
         private readonly USBDeviceList _usbDevices = new USBDeviceList(CyConst.DEVICES_CYUSB);
 
-        public USBDevice SelectedUSBDevice { get { return _usbDevices[SelectedDeviceIndex]; } }
-        public int SelectedDeviceIndex { get; set; }
-
         public DevicesBox()
         {
             InitializeComponent();
