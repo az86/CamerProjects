@@ -5,9 +5,9 @@ namespace ChannelCurves.View
     /// <summary>
     /// ChannelBox.xaml 的交互逻辑
     /// </summary>
-    public partial class ChannelBox : UserControl
+    public partial class ChannelSelectBox : UserControl
     {
-        public ChannelBox()
+        public ChannelSelectBox()
         {
             InitializeComponent();
         }

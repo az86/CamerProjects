@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ChannelCurves.ViewModel
 {
-    class ChannelData
+    class ChannelCurveViewModel
     {
         public int ChannelIndex { get; private set; }
 
-        public int[] PointsOnScreen { get; private set; } = new int[2000];
+        public System.Windows.Point[] PointsOnScreen { get; private set; } = new System.Windows.Point[2000];
 
         /// <summary>
         /// 显示点索引计数，Max = PointsOnScreen.Length - 1
@@ -24,9 +24,13 @@ namespace ChannelCurves.ViewModel
         /// </summary>
         private int _simplingIndex;
 
-        public ChannelData(int channelIndex)
+        public ChannelCurveViewModel(int channelIndex)
         {
             ChannelIndex = channelIndex;
+            for(var i = 0;  i< PointsOnScreen.Length; i++)
+            {
+                PointsOnScreen[i].X = i;
+            }
         }
 
         /// <summary>
@@ -38,7 +42,7 @@ namespace ChannelCurves.ViewModel
             if(++_simplingIndex == SimplingRate)
             {
                 _simplingIndex = 0;
-                PointsOnScreen[_pointsIndex++] = num;
+                PointsOnScreen[_pointsIndex++].Y = num;
                 if (_pointsIndex == PointsOnScreen.Length)
                 {
                     ResetArrayToZero(PointsOnScreen);
@@ -46,11 +50,11 @@ namespace ChannelCurves.ViewModel
             }
         }
 
-        static void ResetArrayToZero(int[] arr)
+        static void ResetArrayToZero(System.Windows.Point[] arr)
         {
             for(int i=0; i < arr.Length; i++)
             {
-                arr[i] = 0;
+                arr[i].Y = 0;
             }
         }
     }

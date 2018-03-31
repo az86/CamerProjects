@@ -70,9 +70,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Basic\Logger.cs" />
-    <Compile Include="ViewModel\ChannelData.cs" />
-    <Compile Include="View\ChannelBox.xaml.cs">
-      <DependentUpon>ChannelBox.xaml</DependentUpon>
+    <Compile Include="ViewModel\ChannelCurveBoxViewModel.cs" />
+    <Compile Include="ViewModel\ChannelCurveViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="View\ChannelSelectBox.xaml.cs">
+      <DependentUpon>ChannelSelectBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ChannelCurveBox.xaml.cs">
       <DependentUpon>ChannelCurveBox.xaml</DependentUpon>
@@ -96,7 +98,7 @@
       <DependentUpon>Threshold.xaml</DependentUpon>
     </Compile>
     <Compile Include="Basic\DataSaver.cs" />
-    <Page Include="View\ChannelBox.xaml">
+    <Page Include="View\ChannelSelectBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

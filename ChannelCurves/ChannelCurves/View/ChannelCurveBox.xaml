@@ -11,7 +11,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <local:ChannelCurve Grid.Row="0"/>
-        <local:ChannelCurve Grid.Row="1"/>
+        <local:ChannelCurve DataContext="{Binding ChannelCurveViewModel0}" CurveData="{Binding PointsOnScreen}" Grid.Row="0"/>
+        <local:ChannelCurve DataContext="{Binding ChannelCurveViewModel1}" CurveData="{Binding PointsOnScreen}" Grid.Row="1"/>
     </Grid>
 </UserControl>

@@ -23,6 +23,12 @@ namespace ChannelCurves.View
         public ChannelCurveBox()
         {
             InitializeComponent();
+            DataContextChanged += ChannelCurveBox_DataContextChanged;
+        }
+
+        private void ChannelCurveBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+          //  throw new NotImplementedException();
         }
     }
 }
