@@ -77,13 +77,20 @@ namespace ChannelCurves.Model
             }
         }
 
-        void Stop()
+        public void Stop()
         {
             _isRun = false;
             if (_thDispatch != null)
+            {
                 _thDispatch.Join();
+                this.WriteLine("Dispath thread join.");
+            }
+
             if (_thXfer != null)
+            {
                 _thXfer.Join();
+                this.WriteLine("Xfer thread join.");
+            }
         }
     }
 }

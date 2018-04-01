@@ -81,6 +81,9 @@
     <Compile Include="View\ChannelCurveBox.xaml.cs">
       <DependentUpon>ChannelCurveBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FileSaveBox.xaml.cs">
+      <DependentUpon>FileSaveBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DevicesBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FileSaveBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

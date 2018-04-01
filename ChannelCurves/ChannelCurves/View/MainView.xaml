@@ -5,6 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ChannelCurves.View"
              mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -31,6 +38,7 @@
             <local:SamplingRate Grid.Column="1" Grid.Row="1"/>
             <local:Threshold Grid.Row="2"/>
             <local:ShowWayBox Grid.Row="3"/>
+            <local:FileSaveBox Grid.Row="4" Grid.ColumnSpan="2"/>
         </Grid>
     </Grid>
 </UserControl>

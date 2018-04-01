@@ -7,4 +7,16 @@
     <Style TargetType="TextBlock">
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
+    <Style TargetType="Button" x:Key="baseBtn">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Width" Value="72"/>
+    </Style>
+    <Style TargetType="Button" BasedOn="{StaticResource baseBtn}"/>
+    <Style TargetType="RadioButton" x:Key="baseRadioBtn">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <Style TargetType="RadioButton" BasedOn="{StaticResource baseRadioBtn}"/>
+    <Style TargetType="GroupBox">
+        <Setter Property="Margin" Value="5"/>
+    </Style>
 </ResourceDictionary>

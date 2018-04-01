@@ -4,22 +4,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace ChannelCurves.ViewModel
 {
-    class MainViewModel 
+    class MainViewModel : System.ComponentModel.INotifyPropertyChanged
     {
         public ChannelCurveBoxViewModel ChannelCurveBoxViewModel { get; private set; } = new ChannelCurveBoxViewModel();
 
         private readonly Model.ModelFacade _model = new Model.ModelFacade();
 
-        public Command StartCommand { get; set; } = new Command();
+        public Command SwitchCommand { get; set; } = new Command();
 
         public Command ChannelSelectCommand { get; set; } = new Command();
 
         public Command ResolutionSetCommand { get; set; } = new Command();
 
         public Command NDataShowOneCommand { get; set; } = new Command();
+
+        public Command SwitchSaveFileCommand { get; set; } = new Command();
+
+        public Command CreateSaveFilePathCommand { get; set; } = new Command();
 
         public int SelectedDeviceIndex { get; set; }
 
@@ -54,7 +59,52 @@ namespace ChannelCurves.ViewModel
             }
         }
 
+        private bool _isRuning;
+
+        public bool IsRuning
+        {
+            get => _isRuning;
+            set
+            {
+                _isRuning = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private bool _isSavingFile;
+
+        public bool IsSavingFile
+        {
+            get => _isSavingFile;
+            set
+            {
+                _isSavingFile = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+        public string SaveFilePath
+        {
+            get => _saveFilePath;
+            set
+            {
+                _saveFilePath = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+        private string _saveFilePath;
+
+        private void NotifyPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         private int _nDataShowOne = 1;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         void OnDataReceive(byte[] buf)
         {
@@ -63,10 +113,49 @@ namespace ChannelCurves.ViewModel
         }
         public MainViewModel()
         {
-            StartCommand.ExecuteEvent = OnStart;
+            SwitchCommand.ExecuteEvent = OnSwitchChanged;
             ChannelSelectCommand.ExecuteEvent = OnSelectChannel;
             ResolutionSetCommand.ExecuteEvent = OnSetResolution;
             NDataShowOneCommand.ExecuteEvent = OnSetNDataShowOne;
+            CreateSaveFilePathCommand.ExecuteEvent = OnCreateSaveFilePath;
+            SwitchSaveFileCommand.ExecuteEvent = OnSwitchSaveFile;
+        }
+
+        private void OnSwitchSaveFile(object obj)
+        {
+            if (obj as string == "start")
+            {
+                StartSaveFile();
+                IsSavingFile = true;
+            }
+            else
+            {
+                StopSaveFile();
+                IsSavingFile = false;
+            }
+        }
+
+        private void StopSaveFile()
+        {
+            _model.SaveToFileStop();
+        }
+
+        private void StartSaveFile()
+        {
+            _model.SaveToFile(SaveFilePath);
+        }
+
+        private void OnCreateSaveFilePath(object obj)
+        {
+            var dlg = new Microsoft.Win32.OpenFileDialog()
+            {
+                CheckFileExists = false,
+                FileName = "channelcurves.dat"
+            };
+            if (dlg.ShowDialog().GetValueOrDefault())
+            {
+                SaveFilePath = dlg.FileName;
+            }
         }
 
         private void OnSetNDataShowOne(object obj)
@@ -85,11 +174,30 @@ namespace ChannelCurves.ViewModel
             SelectedChannelCount = int.Parse(obj as string);
         }
 
-        private void OnStart(object parameter)
+        private void OnSwitchChanged(object parameter)
         {
             this.WriteLine(parameter);
-            //_model.ConnectToCyUSBDevice(SelectedDeviceIndex);
-            _model.ConnectToMockDevice();
+            if (parameter as string == "start")
+            {
+                Start();
+                IsRuning = true;
+            }
+            else
+            {
+                Stop();
+                IsRuning = false;
+            }
+        }
+
+        private void Stop()
+        {
+            _model.Stop();
+        }
+
+        private void Start()
+        {
+            _model.ConnectToCyUSBDevice(SelectedDeviceIndex);
+            //_model.ConnectToMockDevice();
             _model.OnDataReceiveEvent = OnDataReceive;
             _model.Start();
         }

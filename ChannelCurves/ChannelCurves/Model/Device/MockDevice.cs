@@ -26,7 +26,7 @@ namespace ChannelCurves.Model.Device
                     buf[i * 2 + 1] = 0xFF;
                 }
             }
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(10);
             return buf;
         }
     }

@@ -22,7 +22,7 @@ namespace ChannelCurves.Basic
         public void WriteAsync(byte[] buf)
         {
            var offset = System.Threading.Interlocked.Add(ref _offset, buf.Length);
-            _fs.WriteAsync(buf, offset - buf.Length, buf.Length);
+            _fs.WriteAsync(buf, 0, buf.Length);
         }
     }
 }

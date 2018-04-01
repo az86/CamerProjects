@@ -10,6 +10,8 @@ namespace ChannelCurves.Model
     {
         private DataReceiver.DataReceiver _receiver;
 
+        private Basic.DataSaver _dataSaver;
+
         public DataReceiver.DataReceiver.OnDataReceive OnDataReceiveEvent
         {
             get;set;
@@ -29,6 +31,7 @@ namespace ChannelCurves.Model
 
         void OnDataArrive(byte[] buf)
         {
+            _dataSaver?.WriteAsync(buf);
             OnDataReceiveEvent?.Invoke(buf);
         }
         internal void Start()
@@ -41,6 +44,23 @@ namespace ChannelCurves.Model
             var dev = new Model.Device.MockDevice();
             _receiver = new DataReceiver.DataReceiver(dev);
             _receiver.OnDataArriveEvent = OnDataArrive;
+        }
+
+        public void Stop()
+        {
+            _receiver.Stop();
+        }
+
+        public void SaveToFile(string path)
+        {
+            _dataSaver = new Basic.DataSaver(path);
+        }
+
+        public void SaveToFileStop()
+        {
+            var ldataSaver = _dataSaver;
+            _dataSaver = null;
+            ldataSaver.Dispose();
         }
     }
 }

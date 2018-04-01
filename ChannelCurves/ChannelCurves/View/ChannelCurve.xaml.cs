@@ -26,7 +26,7 @@ namespace ChannelCurves.View
             set { SetValue(CurveDataProperty, value); }
         }
 
-        private System.Timers.Timer _timer = new System.Timers.Timer(50);
+        private System.Timers.Timer _timer = new System.Timers.Timer(15);
 
         private EnumerableDataSource<Point> _dsCurve;
 

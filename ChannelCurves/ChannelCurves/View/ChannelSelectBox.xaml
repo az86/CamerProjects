@@ -7,20 +7,26 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-        <Style TargetType="RadioButton" x:Key="rb1">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding SelectedChannelCount}" Value="1">
-                    <Setter Property="IsChecked" Value="True"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-        <Style TargetType="RadioButton"  x:Key="rb2">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding SelectedChannelCount}" Value="2">
-                    <Setter Property="IsChecked" Value="True"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="RadioButton" x:Key="rb1" BasedOn="{StaticResource baseRadioBtn}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding SelectedChannelCount}" Value="1">
+                        <Setter Property="IsChecked" Value="True"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="RadioButton"  x:Key="rb2" BasedOn="{StaticResource baseRadioBtn}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding SelectedChannelCount}" Value="2">
+                        <Setter Property="IsChecked" Value="True"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+ 
     </UserControl.Resources>
     <GroupBox Header="通道数">
         <Grid>

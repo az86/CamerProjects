@@ -7,34 +7,39 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-        <Style TargetType="RadioButton"  x:Key="rbsw1">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding NDataShowOne}" Value="1">
-                    <Setter Property="IsChecked" Value="True"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-        <Style TargetType="RadioButton"  x:Key="rbsw10">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding NDataShowOne}" Value="10">
-                    <Setter Property="IsChecked" Value="True"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-        <Style TargetType="RadioButton"  x:Key="rbsw100">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding NDataShowOne}" Value="100">
-                    <Setter Property="IsChecked" Value="True"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-        <Style TargetType="RadioButton"  x:Key="rbsw1000">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding NDataShowOne}" Value="1000">
-                    <Setter Property="IsChecked" Value="True"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="RadioButton"  x:Key="rbsw1" BasedOn="{StaticResource baseRadioBtn}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding NDataShowOne}" Value="1">
+                        <Setter Property="IsChecked" Value="True"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="RadioButton"  x:Key="rbsw10" BasedOn="{StaticResource baseRadioBtn}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding NDataShowOne}" Value="10">
+                        <Setter Property="IsChecked" Value="True"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="RadioButton"  x:Key="rbsw100" BasedOn="{StaticResource baseRadioBtn}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding NDataShowOne}" Value="100">
+                        <Setter Property="IsChecked" Value="True"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="RadioButton"  x:Key="rbsw1000" BasedOn="{StaticResource baseRadioBtn}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding NDataShowOne}" Value="1000">
+                        <Setter Property="IsChecked" Value="True"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
     </UserControl.Resources>
     <GroupBox Header="显示方式">
         <Grid>
