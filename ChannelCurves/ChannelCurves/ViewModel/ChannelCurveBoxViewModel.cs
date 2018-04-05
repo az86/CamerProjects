@@ -12,6 +12,9 @@ namespace ChannelCurves.ViewModel
         public ChannelCurveViewModel ChannelCurveViewModel0 { get { return _channelCurveViewModels[0]; } }
         public ChannelCurveViewModel ChannelCurveViewModel1 { get { return _channelCurveViewModels[1]; } }
 
+        public ChannelCurveBoxViewModel()
+        {
+        }
         public int ChannelsCount { get; set; } = 2;
 
         public void ShowData(byte[] buf)
@@ -38,6 +41,14 @@ namespace ChannelCurves.ViewModel
             foreach(var ccvm in _channelCurveViewModels)
             {
                 ccvm.SamplingRate = n;
+            }
+        }
+
+        public void Restart()
+        {
+            foreach (var ccvm in _channelCurveViewModels)
+            {
+                ccvm.Restart();
             }
         }
     }

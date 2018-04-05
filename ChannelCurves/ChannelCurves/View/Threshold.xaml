@@ -12,8 +12,14 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBox/>
-            <TextBlock Grid.Column="1">Hex</TextBlock>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock>阈值1 Hex</TextBlock>
+            <TextBox Grid.Column="1" Text="{Binding Threshold0}"/>
+            <TextBlock Grid.Row="1">阈值2 Hex</TextBlock>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Threshold1}"/>
         </Grid>
     </GroupBox>
 </UserControl>

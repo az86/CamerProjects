@@ -20,11 +20,22 @@ namespace ChannelCurves.ViewModel
 
         public int SamplingRate { get; set; } = 1;
 
+        public int Threshold { get => threshold; set { threshold = value; } }
+
         /// <summary>
         /// 采样索引计数, Max = SimplingRate.
         /// </summary>
         private int _simplingIndex;
 
+        private int threshold;
+
+        //数据大于等于阈值是被激发
+        private bool _isStarted = false;
+
+        public void Restart()
+        {
+            _isStarted = false;
+        }
         public ChannelCurveViewModel(int channelIndex)
         {
             ChannelIndex = channelIndex;
@@ -40,6 +51,10 @@ namespace ChannelCurves.ViewModel
         /// <param name="num"></param>
         public void Sample(ushort num)
         {
+            if (num >= Threshold)
+                _isStarted = true;
+            if (false == _isStarted)
+                return;
             if(++_simplingIndex >= SamplingRate)
             {
                 _simplingIndex = 0;

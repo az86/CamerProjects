@@ -11,14 +11,20 @@
 
         protected override byte[] OnXferData()
         {
-            const int bufLen = 16 * 1024;
-            int recvLen = bufLen;
+            const int bufLen = 4096;
+            const int bufCount = 16;
+            var cache = new byte[bufCount * bufLen];
             var buf = new byte[bufLen];
-            if (_cyUsbDev.BulkInEndPt.XferData(ref buf, ref recvLen))
+
+            for (int i = 0; i < bufCount; i++)
             {
-                return buf;
+                int recvLen = bufLen;
+                if (_cyUsbDev.BulkInEndPt.XferData(ref buf, ref recvLen))
+                {
+                    System.Buffer.BlockCopy(buf, 0, cache, bufLen * i, bufLen);
+                }
             }
-            return null;
+            return cache;
         }
     }
 }

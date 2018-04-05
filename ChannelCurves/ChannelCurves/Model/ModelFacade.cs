@@ -26,7 +26,7 @@ namespace ChannelCurves.Model
             var _usbDevices = new CyUSB.USBDeviceList(CyUSB.CyConst.DEVICES_CYUSB);
             var dev = new Model.Device.CyUSBDevice(_usbDevices[cyUsbIndex] as CyUSB.CyUSBDevice);
             _receiver = new DataReceiver.DataReceiver(dev);
-            _receiver.OnDataArriveEvent = OnDataReceiveEvent;
+            _receiver.OnDataArriveEvent = OnDataArrive;
         }
 
         void OnDataArrive(byte[] buf)

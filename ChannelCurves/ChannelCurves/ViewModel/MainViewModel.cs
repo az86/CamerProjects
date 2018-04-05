@@ -94,7 +94,6 @@ namespace ChannelCurves.ViewModel
             }
         }
 
-
         private string _saveFilePath;
 
         private void NotifyPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] String propertyName = "")
@@ -105,6 +104,26 @@ namespace ChannelCurves.ViewModel
         private int _nDataShowOne = 1;
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public int Threshold0
+        {
+            get => ChannelCurveBoxViewModel.ChannelCurveViewModel0.Threshold;
+            set
+            {
+                NotifyPropertyChanged();
+                ChannelCurveBoxViewModel.ChannelCurveViewModel0.Threshold = value;
+            }
+        }
+
+        public int Threshold1
+        {
+            get => ChannelCurveBoxViewModel.ChannelCurveViewModel1.Threshold;
+            set
+            {
+                ChannelCurveBoxViewModel.ChannelCurveViewModel1.Threshold = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         void OnDataReceive(byte[] buf)
         {
@@ -196,6 +215,7 @@ namespace ChannelCurves.ViewModel
 
         private void Start()
         {
+            ChannelCurveBoxViewModel.Restart();
             _model.ConnectToCyUSBDevice(SelectedDeviceIndex);
             //_model.ConnectToMockDevice();
             _model.OnDataReceiveEvent = OnDataReceive;

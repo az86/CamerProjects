@@ -11,8 +11,8 @@ namespace ChannelCurves.Model.Device
         int _startIndex;
         protected override byte[] OnXferData()
         {
-            var buf = new byte[1024*16];
-            for(short i = 0;i < buf.Length/2; i++)
+            var buf = new byte[4096*64];
+            for(int i = 0;i < buf.Length/2; i++)
             {
                 var tmp = BitConverter.GetBytes((ushort)((Math.Sin(_startIndex++/1000.0) + 1) *0x7FFF));
                 if ((i & 1) == 0)
